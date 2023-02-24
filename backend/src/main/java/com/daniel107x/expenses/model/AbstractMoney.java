@@ -1,31 +1,36 @@
+/* Daniel107x (C)2023 */
 package com.daniel107x.expenses.model;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.ColumnDefault;
+import java.util.Date;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
-import java.util.Date;
 
 @MappedSuperclass
 public abstract class AbstractMoney {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private double value;
     private String name;
     private String description;
     private Date dateApplied;
-    @CreationTimestamp
-    private Date created;
-    @UpdateTimestamp
-    private Date updated;
+    @CreationTimestamp private Date created;
+    @UpdateTimestamp private Date updated;
     private boolean isActive = true;
 
-    public AbstractMoney() {
-    }
+    public AbstractMoney() {}
 
-    public AbstractMoney(Long id, double value, String name, String description, Date dateApplied, Date created, Date updated, boolean isActive) {
+    public AbstractMoney(
+            Long id,
+            double value,
+            String name,
+            String description,
+            Date dateApplied,
+            Date created,
+            Date updated,
+            boolean isActive) {
         this.id = id;
         this.value = value;
         this.name = name;
