@@ -1,11 +1,9 @@
 package com.daniel107x.expenses.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.data.annotation.CreatedDate;
 
 import java.util.Date;
 
@@ -18,11 +16,11 @@ public abstract class AbstractMoney {
     private String name;
     private String description;
     private Date dateApplied;
-    @CreatedDate
+    @CreationTimestamp
     private Date created;
     @UpdateTimestamp
     private Date updated;
-    private boolean isActive;
+    private boolean isActive = true;
 
     public AbstractMoney() {
     }
@@ -94,11 +92,11 @@ public abstract class AbstractMoney {
         this.updated = updated;
     }
 
-    public boolean isActive() {
+    public boolean getIsActive() {
         return isActive;
     }
 
-    public void setActive(boolean active) {
-        isActive = active;
+    public void setIsActive(boolean isActive) {
+        this.isActive = isActive;
     }
 }
