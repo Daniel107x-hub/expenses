@@ -1,5 +1,7 @@
 import React from 'react'
 import Card from '../UI/Card';
+import {MdDelete, MdModeEdit} from 'react-icons/md'
+import { IconContext } from 'react-icons';
 
 function Expense(props) {
     const expense = props.expense;
@@ -13,9 +15,11 @@ function Expense(props) {
                     <div className="date text-sm">{date.toLocaleDateString()}</div>
                     <div className="description text-sm">{expense.description}</div>
                 </section>
-                <section className="actions w-1/2 flex flex-col justify-center">
-                    <div className="edit">Edit</div>
-                    <div className="delete">Delete</div>
+                <section className="actions w-1/2 flex flex-row justify-evenly items-center">
+                    <IconContext.Provider value={{size: "1.5em"}}>
+                        <div className="edit"><MdModeEdit/></div>
+                        <div className="delete"><MdDelete/></div>
+                    </IconContext.Provider>
                 </section>
             </div>
         </Card>
