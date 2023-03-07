@@ -8,7 +8,7 @@ services:
       - POSTGRES_PASSWORD=expenses
       - POSTGRES_DB=expenses
     ports:
-      - "5432:5432"
+      - "5435:5432"
     volumes:
       - database:/var/lib/postgresql/data
 volumes:

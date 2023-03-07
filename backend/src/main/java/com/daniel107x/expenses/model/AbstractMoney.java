@@ -1,33 +1,36 @@
+/* Daniel107x (C)2023 */
 package com.daniel107x.expenses.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
-import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.data.annotation.CreatedDate;
-
+import jakarta.persistence.*;
 import java.util.Date;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @MappedSuperclass
 public abstract class AbstractMoney {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private double value;
     private String name;
     private String description;
     private Date dateApplied;
-    @CreatedDate
-    private Date created;
-    @UpdateTimestamp
-    private Date updated;
-    private boolean isActive;
+    @CreationTimestamp private Date created;
+    @UpdateTimestamp private Date updated;
+    private boolean isActive = true;
 
-    public AbstractMoney() {
-    }
+    public AbstractMoney() {}
 
-    public AbstractMoney(Long id, double value, String name, String description, Date dateApplied, Date created, Date updated, boolean isActive) {
+    public AbstractMoney(
+            Long id,
+            double value,
+            String name,
+            String description,
+            Date dateApplied,
+            Date created,
+            Date updated,
+            boolean isActive) {
         this.id = id;
         this.value = value;
         this.name = name;
@@ -94,11 +97,11 @@ public abstract class AbstractMoney {
         this.updated = updated;
     }
 
-    public boolean isActive() {
+    public boolean getIsActive() {
         return isActive;
     }
 
-    public void setActive(boolean active) {
-        isActive = active;
+    public void setIsActive(boolean isActive) {
+        this.isActive = isActive;
     }
 }
