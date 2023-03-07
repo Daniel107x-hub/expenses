@@ -7,7 +7,7 @@ function Expense(props) {
     const expense = props.expense;
     const date = new Date(expense.dateApplied);
     return (
-        <Card className="mx-10 py-3">
+        <Card className="mx-10 py-3 hover:bg-slate-200">
             <div className="expense flex flex-row w-full">
                 <section className="info w-1/2 mx-5">
                     <div className="amount text-lg font-semibold text-red-600">${expense.value}</div>
