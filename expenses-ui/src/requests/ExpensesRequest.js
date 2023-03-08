@@ -3,3 +3,9 @@ import axios from "axios"
 export const getExpenses = () => {
     return axios("http://localhost:10000/api/expenses")
 };
+
+export const addExpense = (expense) => {
+    return axios.post("http://localhost:10000/api/expenses", {
+        expense
+    })
+}
