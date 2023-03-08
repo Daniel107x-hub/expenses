@@ -1,5 +1,5 @@
 import React from "react";
-import ReactPortal from "./ReactPortal";
+import ReactPortal from "../Utils/ReactPortal";
 import { IconContext } from "react-icons";
 import { MdClose } from "react-icons/md";
 
